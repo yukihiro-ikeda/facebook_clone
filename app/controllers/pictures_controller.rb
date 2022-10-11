@@ -21,6 +21,7 @@ class PicturesController < ApplicationController
   
   def confirm
     @picture = Picture.new(picture_params)
+    # render :new if @picture.invalid?
   end
   # GET /pictures/1/edit
   def edit
@@ -29,15 +30,11 @@ class PicturesController < ApplicationController
   # POST /pictures or /pictures.json
   def create
     @picture = Picture.new(picture_params)
-
-    respond_to do |format|
-      if @picture.save
-        format.html { redirect_to picture_url(@picture), notice: "Picture was successfully created." }
-        format.json { render :show, status: :created, location: @picture }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @picture.errors, status: :unprocessable_entity }
-      end
+    @picture.user_id = current_user.id
+    if @picture.save
+      redirect_to pictures_path,notice: "Picture was successfully created." 
+    else
+      render :new
     end
   end
 

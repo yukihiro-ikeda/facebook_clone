@@ -5,12 +5,17 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  <header>
+  <p>友達つながりアプリ</p>
+</header>
+<div class="main">
+
+</div>
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "#{key}") %>
     <% end %>
@@ -26,3 +31,15 @@
     <%= yield %>
   </body>
 </html>
+
+<style>
+
+header{
+  background-color:rgb(106, 155, 230, 0.5);
+  text-align: center;
+  
+}
+
+p {
+  font-size:20px;
+}
