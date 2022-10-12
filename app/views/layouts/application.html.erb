@@ -12,10 +12,10 @@
   <body>
   <header>
   <p>友達つながりアプリ</p>
-</header>
-<div class="main">
+  </header>
+  <div class="main">
 
-</div>
+  </div>
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "#{key}") %>
     <% end %>
@@ -37,9 +37,11 @@
 header{
   background-color:rgb(106, 155, 230, 0.5);
   text-align: center;
+  height: 100px;
   
 }
 
 p {
+  padding-top: 2rem;
   font-size:20px;
 }
